@@ -8,7 +8,7 @@ unsigned int faStr1(const char* str) {
     bool word = false;
     bool correct = true;
     while (*c != '\0') {
-        if (isspace(*c)){
+        if (isspace(*c)) {
             if (word && correct) {
                 count++;
             }
@@ -73,5 +73,7 @@ unsigned int faStr3(const char* str) {
     }
     if (count != 0) {
         return (round(static_cast<double>(length) / count));
-    } else return 0;
+    } else {
+        return 0;
+    }
 }
