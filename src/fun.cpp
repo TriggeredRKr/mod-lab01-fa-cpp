@@ -2,61 +2,45 @@
 #include "fun.h"
 #include <ctype.h>
 #include <math.h>
-unsigned int faStr1(const char *str) {
+unsigned int faStr1(const char* str) {
     int count = 0;
     const char* c = str;
     bool word = false;
     bool correct = true;
-    while (*c != '\0')
-    {
-        if (isspace(*c))
-        {
-            if (word && correct)
-            {
+    while (*c != '\0') {
+        if (isspace(*c)){
+            if (word && correct) {
                 count++;
             }
             word = false;
             correct = true;
-        }
-        else if (isdigit(*c))
-        {
+        } else if (isdigit(*c)) {
             word = true;
             correct = false;
-        }
-        else if (isalpha(*c))
-        {
+        } else if (isalpha(*c)) {
             word = true;
         }
         c++;
     }
-    if (word && correct)
-    {
+    if (word && correct) {
         count++;
     }
     return count;
 }
 
-unsigned int faStr2(const char *str) {
+unsigned int faStr2(const char* str) {
     int count = 0;
     const char* c = str;
     bool word = false;
     bool correct = true;
-    while (*c != '\0')
-    {
-        if (isupper(*c) && word == false)
-        {
+    while (*c != '\0') {
+        if (isupper(*c) && word == false) {
             correct = true;
             word = true;
-        }
-        else if (word == true && !islower(*c) && !isspace(*c))
-        {
+        } else if (word == true && !islower(*c) && !isspace(*c)) {
             correct = false;
-        }
-
-        else if (isspace(*c))
-        {
-            if (correct && word)
-            {
+        } else if (isspace(*c)) {
+            if (correct && word) {
                 count++;
             }
             word = false;
@@ -64,38 +48,30 @@ unsigned int faStr2(const char *str) {
         }
         c++;
     }
-    if (word && correct)
-    {
+    if (word && correct) {
         count++;
     }
     return count;
 }
 
-unsigned int faStr3(const char *str) {
+unsigned int faStr3(const char* str) {
     int count = 0;
     int length = 0;
     bool word = false;
     const char* c = str;
-    while (*c != '\0')
-    {
-        if (!isspace(*c))
-        {
+    while (*c != '\0') {
+        if (!isspace(*c)) {
             word = true;
             length++;
-        }
-        else
-        {
-            if (word)
-            {
+        } else {
+            if (word) {
                 count++;
             }
             word = false;
         }
         c++;
     }
-    if (count != 0)
-    {
-        return (round((double)length / count));
-    }
-    else return 0;
+    if (count != 0) {
+        return (round(static_cast<double>(length) / count));
+    } else return 0;
 }
