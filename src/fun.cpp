@@ -60,16 +60,21 @@ unsigned int faStr3(const char* str) {
     bool word = false;
     const char* c = str;
     while (*c != '\0') {
-        if (!isspace(*c)) {
+        if (!isspace(*c) && !word) {
             word = true;
             length++;
-        } else {
-            if (word) {
-                count++;
-            }
+        }
+        else if (isspace(*c) && word) {
+            count++;
             word = false;
         }
+        else if (word) {
+            length++;
+        }
         c++;
+    }
+    if (word) {
+        count++;
     }
     if (count != 0) {
         return (round(static_cast<double>(length) / count));
