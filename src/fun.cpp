@@ -63,12 +63,10 @@ unsigned int faStr3(const char* str) {
         if (!isspace(*c) && !word) {
             word = true;
             length++;
-        }
-        else if (isspace(*c) && word) {
+        } else if (isspace(*c) && word) {
             count++;
             word = false;
-        }
-        else if (word) {
+        } else if (word) {
             length++;
         }
         c++;
