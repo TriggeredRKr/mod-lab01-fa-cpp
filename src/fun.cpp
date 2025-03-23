@@ -1,6 +1,7 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
-
+#include <ctype.h>
+#include <math.h>
 unsigned int faStr1(const char *str) {
     int count = 0;
     const char* c = str;
